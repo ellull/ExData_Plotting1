@@ -9,19 +9,28 @@ dt <- transform(dt, DateTime=strptime(paste(as.character(Date), as.character(Tim
 png("plot4.png", width=480, height=480)
 par(mfrow=c(2, 2))
 
-plot(dt$DateTime, dt$Global_active_power, xlab="", ylab="Global Active Power", type="n")
+# Top left plot
+plot(dt$DateTime, dt$Global_active_power, type="n", xlab="",
+     ylab="Global Active Power")
 lines(dt$DateTime, dt$Global_active_power)
 
-plot(dt$DateTime, dt$Voltage, xlab="datetime", ylab="Voltage", type="n")
+# Top right plot
+plot(dt$DateTime, dt$Voltage, type="n", xlab="datetime",
+     ylab="Voltage")
 lines(dt$DateTime, dt$Voltage)
 
-plot(dt$DateTime, dt$Sub_metering_1, xlab="", ylab="Energy sub metering", type="n")
+# Bottom left plot
+plot(dt$DateTime, dt$Sub_metering_1, type="n", xlab="",
+     ylab="Energy sub metering")
 lines(dt$DateTime, dt$Sub_metering_1, col="black")
 lines(dt$DateTime, dt$Sub_metering_2, col="red")
 lines(dt$DateTime, dt$Sub_metering_3, col="blue")
-legend("topright", legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lwd=1, col=c("black", "red", "blue"), bty="n")
+legend("topright", legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
+       lwd=1, col=c("black", "red", "blue"), bty="n")
 
-plot(dt$DateTime, dt$Global_reactive_power, xlab="datetime", ylab="Global_reactive_power", type="n")
+# Bottom right plot
+plot(dt$DateTime, dt$Global_reactive_power, type="n", xlab="datetime",
+     ylab="Global_reactive_power")
 lines(dt$DateTime, dt$Global_reactive_power)
 
 dev.off()

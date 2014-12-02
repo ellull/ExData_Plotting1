@@ -7,6 +7,7 @@ dt <- transform(dt, DateTime=strptime(paste(as.character(Date), as.character(Tim
 
 # Create the plot
 png("plot2.png", width=480, height=480)
-plot(dt$DateTime, dt$Global_active_power, xlab="", ylab="Global Active Power (kilowatts)", type="n")
+plot(dt$DateTime, dt$Global_active_power, type="n", xlab="",
+     ylab="Global Active Power (kilowatts)")
 lines(dt$DateTime, dt$Global_active_power)
 dev.off()
