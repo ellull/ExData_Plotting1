@@ -6,7 +6,7 @@ dt <- read.table(pipe, header=TRUE, sep=";", na.strings="?")
 dt <- transform(dt, DateTime=strptime(paste(as.character(Date), as.character(Time)), "%d/%m/%Y %H:%M:%S"))
 
 # Create the plot
-png("plot3.png", width=480, height=480)
+png("plot3.png", width=480, height=480, bg="transparent")
 plot(dt$DateTime, dt$Sub_metering_1, type="n", xlab="",
      ylab="Energy sub metering")
 lines(dt$DateTime, dt$Sub_metering_1, col="black")
